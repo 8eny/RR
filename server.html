@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Raw Text</title>
+</head>
+<body>
+
+<pre id="rawText"></pre>
+
+<script>
+    // Replace 'YOUR_GITHUB_RAW_URL' with the raw URL of your GitHub file
+    var githubRawUrl = 'https://raw.githubusercontent.com/your-username/your-repo/main/test.txt';
+
+    // Fetch the raw text from the GitHub file
+    fetch(githubRawUrl)
+        .then(response => response.text())
+        .then(text => {
+            // Display the raw text in the <pre> element with id 'rawText'
+            document.getElementById('rawText').textContent = text;
+        })
+        .catch(error => console.error('Error fetching raw text:', error));
+</script>
+
+</body>
+</html>
